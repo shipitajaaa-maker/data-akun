@@ -60,3 +60,33 @@ data.messages.forEach(msg => {
 
   console.log(`${date} - ${sender}: ${text}`);
 });
+
+
+const fs = require('fs');
+
+// baca file JSON
+const data = JSON.parse(
+  fs.readFileSync('./messages/inbox/chat/message_1.json', 'utf8')
+);
+
+// tampilkan semua pesan (lebih aman)
+data.messages.forEach(msg => {
+  const sender = msg.sender_name || 'Unknown';
+  const text = msg.content || '[Non-text mes
+
+
+
+  const fs = require('fs');
+
+// baca file JSON
+const data = JSON.parse(
+  fs.readFileSync('./messages/inbox/chat/message_1.json', 'utf8')
+);
+
+// tampilkan semua pesan (lebih aman)
+data.messages.forEach(msg => {
+  const sender = msg.sender_name || 'Unknown';
+  const text = msg.content || '[Non-text message]';
+
+  console.log(`${sender}: ${text}`);
+});
