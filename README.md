@@ -27,3 +27,13 @@ b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAE...
 ... (panjang banget)
 -----END OPENSSH PRIVATE KEY-----
 cat ~/.ssh/id_rsa.pub
+
+data.messages
+  .sort((a, b) => a.timestamp_ms - b.timestamp_ms)
+  .forEach(msg => {
+    const sender = msg.sender_name || 'Unknown';
+    const text = msg.content || '[Non-text]';
+    const date = new Date(msg.timestamp_ms).toLocaleString();
+
+    console.log(`${date} - ${sender}: ${text}`);
+  });
