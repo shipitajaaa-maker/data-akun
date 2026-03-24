@@ -28,3 +28,6 @@ b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAE...
 -----END OPENSSH PRIVATE KEY-----
 cat ~/.ssh/id_rsa.pub
 
+
+
+// membaca file JSON const data = JSON.parse( fs.readFileSync('./messages/inbox/chat/message_1.json', 'utf8') );
