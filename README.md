@@ -22,3 +22,7 @@ id_rsa.pub
 id_rsa
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC... user@V2025
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC... user@vivoy21d
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAE...
+... (panjang banget)
+-----END OPENSSH PRIVATE KEY-----
