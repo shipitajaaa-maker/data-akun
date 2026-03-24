@@ -6,3 +6,6 @@ fetch('https://jsonplaceholder.typicode.com/users')
 ["access_token","cdn_override"]
 
 https://github.com/shipitajaaa-maker/data-akun
+
+https://github.com/shipitajaaa-maker/data-akun/blob/main/README.md
+
