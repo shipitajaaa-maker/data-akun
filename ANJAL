@@ -1,0 +1,17 @@
+const fs = require('fs');
+
+// baca file JSON
+const data = JSON.parse(
+  fs.readFileSync('./messages/inbox/chat/message_1.json', 'utf8')
+);
+
+// urutkan pesan dari lama ke baru
+data.messages
+  .sort((a, b) => a.timestamp_ms - b.timestamp_ms)
+  .forEach(msg => {
+    const sender = msg.sender_name || 'Unknown';
+    const text = msg.content || '[Pesan non-teks]';
+    const date = new Date(msg.timestamp_ms).toLocaleString();
+
+    console.log(`${date} - ${sender}: ${text}`);
+  });
