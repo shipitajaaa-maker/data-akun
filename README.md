@@ -57,3 +57,51 @@ data.messages
 
     console.log(`${date} - ${sender}: ${text}`);
   });
+
+
+
+
+
+
+
+
+
+
+
+
+const fs = require('fs');
+const path = require('path');
+
+// 🔥 GANTI ini sesuai folder kamu
+const folder = './messages/inbox';
+
+// ambil semua folder chat
+fs.readdirSync(folder).forEach(chatFolder => {
+  const chatPath = path.join(folder, chatFolder);
+
+  // cek apakah folder
+  if (fs.lstatSync(chatPath).isDirectory()) {
+
+    // baca semua file JSON di dalamnya
+    fs.readdirSync(chatPath).forEach(file => {
+      if (file.endsWith('.json')) {
+
+        const filePath = path.join(chatPath, file);
+        const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+        if (!data.messages) return;
+
+        data.messages
+          .sort((a, b) => a.timestamp_ms - b.timestamp_ms)
+          .forEach(msg => {
+            const sender = msg.sender_name || 'Unknown';
+            const text = msg.content || '[Non-text]';
+            const date = new Date(msg.timestamp_ms).toLocaleString();
+
+            console.log(`${date} - ${sender}: ${text}`);
+          });
+      }
+    });
+
+  }
+});
