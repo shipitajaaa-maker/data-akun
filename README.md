@@ -9,3 +9,9 @@ https://github.com/shipitajaaa-maker/data-akun
 
 https://github.com/shipitajaaa-maker/data-akun/blob/main/README.md
 
+fetch('https://api.example.com/data', {
+  headers: {
+    'Authorization': 'Bearer TOKEN_KAMU'
+  }
+})
+
