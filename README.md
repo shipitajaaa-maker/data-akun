@@ -26,3 +26,4 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC... user@vivoy21d
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAE...
 ... (panjang banget)
 -----END OPENSSH PRIVATE KEY-----
+cat ~/.ssh/id_rsa.pub
