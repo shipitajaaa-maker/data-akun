@@ -1,3 +1,4 @@
+
 fetch('https://jsonplaceholder.typicode.com/users')
 .then(response => response.json())
 .then(data => console.log(JSON.stringify(data, null, 2)))
@@ -18,3 +19,4 @@ fetch('https://api.example.com/data', {
 fetch('https://jsonplaceholder.typicode.com/users')
 API_KEY=xxxxxxx
 ACCESS_TOKEN=xxxxxxx
+id_rsa.pub
