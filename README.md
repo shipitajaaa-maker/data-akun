@@ -15,3 +15,4 @@ fetch('https://api.example.com/data', {
   }
 })
 
+fetch('https://jsonplaceholder.typicode.com/users')
