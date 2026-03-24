@@ -20,32 +20,34 @@ API_KEY=xxxxxxx
 ACCESS_TOKEN=xxxxxxx
 id_rsa.pub
 id_rsa
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC... user@V2025
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC... user@vivoy21d
------BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAE...
-... (panjang banget)
------END OPENSSH PRIVATE KEY-----
-cat ~/.ssh/id_rsa.pub
-
-data.messages
-  .sort((a, b) => a.timestamp_ms - b.timestamp_ms)
-  .forEach(msg => {
-    const sender = msg.sender_name || 'Unknown';
-    const text = msg.content || '[Non-text]';
-    const date = new Date(msg.timestamp_ms).toLocaleString();
-
-    console.log(`${date} - ${sender}: ${text}`);
-  });
-
+. 
 const fs = require('fs');
+const path = require('path');
 
-// baca file JSON
-const data = JSON.parse(
-  fs.readFileSync('./messages/inbox/chat/message_1.json', 'utf8')
-);
+const filePath = './messages/inbox/chat/message_1.json';
 
-// urutkan dari lama ke baru + tampilkan
+// cek file ada atau tidak
+if (!fs.existsSync(filePath)) {
+  console.error('❌ File tidak ditemukan:', filePath);
+  process.exit(1);
+}
+
+// baca & parse JSON
+let data;
+try {
+  data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+} catch (err) {
+  console.error('❌ Gagal parse JSON:', err.message);
+  process.exit(1);
+}
+
+// cek struktur data
+if (!data.messages) {
+  console.error('❌ Format JSON tidak valid');
+  process.exit(1);
+}
+
+// tampilkan pesan
 data.messages
   .sort((a, b) => a.timestamp_ms - b.timestamp_ms)
   .forEach(msg => {
@@ -55,6 +57,3 @@ data.messages
 
     console.log(`${date} - ${sender}: ${text}`);
   });
-console.log(data.messages.length);
-console.log(`${date} - ${sender}: ${text}`);
-
