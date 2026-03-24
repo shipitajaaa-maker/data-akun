@@ -37,3 +37,26 @@ data.messages
 
     console.log(`${date} - ${sender}: ${text}`);
   });
+
+const fs = require('fs');
+
+// baca file JSON
+const data = JSON.parse(
+  fs.readFileSync('./messages/inbox/chat/message_1.json', 'utf8')
+);
+
+const fs = require('fs');
+
+// baca file JSON
+const data = JSON.parse(
+  fs.readFileSync('./messages/inbox/chat/message_1.json', 'utf8')
+);
+
+// tampilkan pesan + tanggal
+data.messages.forEach(msg => {
+  const sender = msg.sender_name || 'Unknown';
+  const text = msg.content || '[Non-text]';
+  const date = new Date(msg.timestamp_ms).toLocaleString();
+
+  console.log(`${date} - ${sender}: ${text}`);
+});
