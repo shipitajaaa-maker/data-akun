@@ -56,3 +56,5 @@ data.messages
     console.log(`${date} - ${sender}: ${text}`);
   });
 console.log(data.messages.length);
+console.log(`${date} - ${sender}: ${text}`);
+
